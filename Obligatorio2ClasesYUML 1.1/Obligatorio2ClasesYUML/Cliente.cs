@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace Obligatorio2
 
         #region Propiedades
 
-        public string Cedula//Aca tengo que controlar que sea unica en el sistema?????
+        public string Cedula//Se controlara que sea unica en la clase Empresa ya que es ahi donde no se puede repetir
         {
             set //Controlo entre 5 y 7, para que solo sean validos valores de 6 y 7 digitos.
             {
@@ -35,10 +35,10 @@ namespace Obligatorio2
         {
             set
             {
-                if (value >= 0 && value < 100)
+                if (value >= 0 && value <= 100)
                 { descuento = value; }
                 else
-                { throw new Exception("El descuento debe ser entre 0 y 99."); }
+                { throw new Exception("El descuento debe ser entre 0 y 100."); }
             }
             get
             { return descuento; }
@@ -48,8 +48,8 @@ namespace Obligatorio2
         {
             set
             {
-                if (value.Length != 0)//Controlo que al menos escriba algo.
-                { direccion = value; }
+                if (value.Length != 0)//Controlo que al menos escriba algo. Y que sea distinto de espacios.
+                { direccion = value.Trim(); }
                 else
                 { throw new Exception("Por favor escriba una direccion."); }
             }
