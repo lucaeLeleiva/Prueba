@@ -31,7 +31,10 @@ namespace Obligatorio2ClasesYUML
 
 				get{return codigoDeBarras;}
 
-				set{codigoDeBarras=value;}
+				set{
+					if((value.Trim()).Length!=0){codigoDeBarras=value;}//Verifico que haya ingresado al menos una letra
+					else{throw new Exception("El codigo de barras debe de contener almenos un digito.");}
+				}
 
 			}
 
@@ -39,7 +42,14 @@ namespace Obligatorio2ClasesYUML
 
 				get{return fechaDeVencimiento;}
 
-				set{fechaDeVencimiento=value;}
+				set{//Se controla que no este vencido al ingresarlo al sistema.
+					if(value>DateTime.Now()){//A verificar si es correcta la sintaxis.
+						fechaDeVencimiento=value;
+					}else{
+						throw new Exception("El producto ya esta vencido, haga el reclamo correspondiente.");
+					}
+					
+				}
 
 			}
 
@@ -47,7 +57,12 @@ namespace Obligatorio2ClasesYUML
 
 				get{return nombre;}
 
-				set{nombre=value;}
+				set{
+					if((value.Trim()).Length!=0){
+						nombre=value;
+					}
+					
+				}
 
 			}
 
@@ -88,16 +103,16 @@ namespace Obligatorio2ClasesYUML
 
 			}
 
-        //De momento voy a llamar Igual hasta consultar con el profesor como sobre escribir equals
-
-			public bool Igual(Productos producto){
-
-				bool igual=false;
-
-				igual=this.CodigoDeBarras==producto.CodigoDeBarras;
-
+        //Recibe un atributo cualquiera(todo lo creado es object), verifica si es de la clase producto, y luego verifica si tiene el mismo codigo de barras
+	//Si tiene el mismo codigo de barras se considera que es el mismo producto y no puede estar dos veces ingresado el mismo producto
+			public override bool Equals(object obj){
+				bool igual=false;//inicializa en false
+				if(obj is Producto){//verifica si lo recibido es de la clase Producto
+					if(((Producto)obj).CodigoDeBarras==this.CodigoDeBarras){//Compara la cedula del objeto recibido con la cedula del producto al cual se le hace un punto
+						igual=true;//si son iguales devuelve true;
+					}
+				}
 				return igual;
-
 			}
 
 		#endregion
