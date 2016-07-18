@@ -1,0 +1,4 @@
+C:\Users\Luca\Desktop\Obligatorio2ClasesYUML\Obligatorio2ClasesYUML\bin\Debug\Obligatorio2ClasesYUML.exe
+C:\Users\Luca\Desktop\Obligatorio2ClasesYUML\Obligatorio2ClasesYUML\bin\Debug\Obligatorio2ClasesYUML.pdb
+C:\Users\Luca\Desktop\Obligatorio2ClasesYUML\Obligatorio2ClasesYUML\obj\x86\Debug\Obligatorio2ClasesYUML.exe
+C:\Users\Luca\Desktop\Obligatorio2ClasesYUML\Obligatorio2ClasesYUML\obj\x86\Debug\Obligatorio2ClasesYUML.pdb
